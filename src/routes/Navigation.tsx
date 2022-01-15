@@ -17,7 +17,7 @@ export const Navigation: React.FC = () => {
                 to="/shopping"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Shop
+                Shopping
               </NavLink>
             </li>
             <li>

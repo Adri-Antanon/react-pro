@@ -6,10 +6,11 @@ import {
 } from "../components/product";
 
 import { product } from "../config/constants";
+import "../styles/custom-styles.css";
 
 const ShoppingPage = () => {
   return (
-    <div>
+    <div className="bg-dark">
       <h1>Shopping Store</h1>
       <hr />
       <div
@@ -19,7 +20,7 @@ const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCard product={product}>
+        <ProductCard product={product} className="bg-dark">
           <ProductImage />
           <ProductTitle />
           <ProductButtons />

@@ -6,6 +6,7 @@ export interface Product {
 
 export interface ProductProps {
   product: Product;
+  className?: string;
 }
 
 export interface ProductImageInterface {

@@ -5,7 +5,11 @@ import { ProductProps } from "../../interfaces";
 
 import { Provider } from "../../context/product-context";
 
-export const ProductCard: React.FC<ProductProps> = ({ product, children }) => {
+export const ProductCard: React.FC<ProductProps> = ({
+  product,
+  children,
+  className,
+}) => {
   const { counter, increaseHandler } = useProduct();
 
   return (
@@ -16,7 +20,7 @@ export const ProductCard: React.FC<ProductProps> = ({ product, children }) => {
         product,
       }}
     >
-      <div className={styles.productCard}>{children}</div>
+      <div className={`${styles.productCard} ${className}`}>{children}</div>
     </Provider>
   );
 };

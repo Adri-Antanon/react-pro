@@ -9,6 +9,7 @@ export const ProductCard: React.FC<ProductProps> = ({
   product,
   children,
   className,
+  style
 }) => {
   const { counter, increaseHandler } = useProduct();
 
@@ -20,7 +21,7 @@ export const ProductCard: React.FC<ProductProps> = ({
         product,
       }}
     >
-      <div className={`${styles.productCard} ${className}`}>{children}</div>
+      <div style={style} className={`${styles.productCard} ${className}`}>{children}</div>
     </Provider>
   );
 };

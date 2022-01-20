@@ -2,9 +2,9 @@ import { useContext } from "react";
 
 import styles from "../../styles/styles.module.css";
 import ProductContext from "../../context/product-context";
-import { className } from '../../interfaces/index';
+import {  ProductButtonsStyles } from '../../interfaces/index';
 
-export const ProductButtons: React.FC<className> = ({className}) => {
+export const ProductButtons: React.FC<ProductButtonsStyles> = ({className, style}) => {
   const { increaseHandler, counter } = useContext(ProductContext);
   const { buttonsContainer, buttonMinus, countLabel, buttonAdd } = styles;
 

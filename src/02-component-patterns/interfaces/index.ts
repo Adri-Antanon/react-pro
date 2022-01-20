@@ -7,20 +7,25 @@ export interface Product {
 export interface className {
   className?: string;
 }
+export interface styles {
+  style?: React.CSSProperties;
+}
 
-export interface ProductProps extends className {
+export interface ProductButtonsStyles extends styles, className{}
+
+export interface ProductProps extends className, styles {
   product: Product;
 }
 
-export interface ProductImageInterface extends className {
+export interface ProductImageInterface extends className, styles {
   img?: string;
 }
 
-export interface ProductTitleInterface extends className {
+export interface ProductTitleInterface extends className, styles {
   title?: string;
 }
 
-export interface ProductButtonsProps {
+export interface ProductButtonsProps extends styles {
   increaseHandler: (value: number) => void;
   counter: number;
 }

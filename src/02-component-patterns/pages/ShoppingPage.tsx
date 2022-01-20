@@ -7,10 +7,11 @@ import {
 
 import { product } from "../config/constants";
 import "../styles/custom-styles.css";
+import { className } from '../interfaces/index';
 
 const ShoppingPage = () => {
   return (
-    <div className="bg-dark">
+    <div >
       <h1>Shopping Store</h1>
       <hr />
       <div
@@ -20,10 +21,15 @@ const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCard product={product} className="bg-dark">
+        <ProductCard product={product}>
           <ProductImage />
-          <ProductTitle />
+          <ProductTitle  />
           <ProductButtons />
+        </ProductCard>
+        <ProductCard product={product} className="bg-dark">
+          <ProductImage className="custom-image" />
+          <ProductTitle className="text-white" />
+          <ProductButtons className="custom-buttons" />
         </ProductCard>
       </div>
     </div>

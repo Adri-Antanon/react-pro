@@ -5,7 +5,7 @@ import noImage from "../../assets/no-image.jpg";
 import { useContext } from "react";
 import ProductContext from "../../context/product-context";
 
-export const ProductImage: React.FC<ProductImageInterface> = ({ img = "" }) => {
+export const ProductImage: React.FC<ProductImageInterface> = ({ img = "", className }) => {
   const { product } = useContext(ProductContext);
   let imgToShow: string;
 
@@ -17,5 +17,5 @@ export const ProductImage: React.FC<ProductImageInterface> = ({ img = "" }) => {
     imgToShow = noImage;
   }
 
-  return <img className={styles.productImg} src={imgToShow} alt="Product" />;
+  return <img className={`${styles.productImg} ${className}`} src={imgToShow} alt="Product" />;
 };

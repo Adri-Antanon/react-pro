@@ -4,16 +4,19 @@ export interface Product {
   img?: string;
 }
 
-export interface ProductProps {
-  product: Product;
+export interface className {
   className?: string;
 }
 
-export interface ProductImageInterface {
+export interface ProductProps extends className {
+  product: Product;
+}
+
+export interface ProductImageInterface extends className {
   img?: string;
 }
 
-export interface ProductTitleInterface {
+export interface ProductTitleInterface extends className {
   title?: string;
 }
 

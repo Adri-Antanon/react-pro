@@ -11,7 +11,7 @@ export interface styles {
   style?: React.CSSProperties;
 }
 
-export interface ProductButtonsStyles extends styles, className{}
+export interface ProductButtonsStyles extends styles, className {}
 
 export interface ProductProps extends className, styles {
   product: Product;
@@ -33,3 +33,7 @@ export interface ProductButtonsProps extends styles {
 export interface ProductContextProps
   extends ProductButtonsProps,
     ProductProps {}
+
+export interface ProductInCart extends Product {
+  count: number;
+}

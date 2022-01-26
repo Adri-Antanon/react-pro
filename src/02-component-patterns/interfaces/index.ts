@@ -1,3 +1,4 @@
+import { product } from "../config/constants";
 export interface Product {
   id: string;
   title?: string;
@@ -15,6 +16,17 @@ export interface ProductButtonsStyles extends styles, className {}
 
 export interface ProductProps extends className, styles {
   product: Product;
+  onChange?: (args: onChangeArgs) => void;
+}
+
+export interface onChangeArgs {
+  product: Product;
+  count: number;
+}
+
+export interface useProductArgs {
+  product: Product;
+  onChange?: (args: onChangeArgs) => void;
 }
 
 export interface ProductImageInterface extends className, styles {

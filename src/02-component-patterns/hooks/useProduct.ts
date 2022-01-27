@@ -8,14 +8,13 @@ export const useProduct = ({
 }: useProductArgs) => {
   const [counter, setCounter] = useState(value);
 
-  const isControlled = useRef(!!onChange);
-  console.log("isControlled", isControlled.current);
+  // const isControlled = useRef(!!onChange);
 
   const increaseHandler = (value: number) => {
-    if (isControlled.current) {
-      return onChange!({ count: value, product });
-      // Siempre que ponemos el ! al final de una variable es para decirle a TS que seguro que existirá cuando lo necesite
-    }
+    // if (isControlled.current) {
+    //   return onChange!({ count: value, product });
+    // Siempre que ponemos el ! al final de una variable es para decirle a TS que seguro que existirá cuando lo necesite
+    // }
     const newValue = Math.max(counter + value, 0);
     setCounter(newValue);
 

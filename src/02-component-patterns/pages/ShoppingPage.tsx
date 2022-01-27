@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   ProductImage,
   ProductButtons,
@@ -6,45 +5,12 @@ import {
   ProductCard,
 } from "../components/product";
 
-import { products, product2, product } from "../config/constants";
+import { products } from "../config/constants";
 import "../styles/custom-styles.css";
-import { ProductInCart, Product, onChangeArgs } from "../interfaces/index";
+import { useShoppingCart } from "../hooks/useShoppingCart";
 
 const ShoppingPage = () => {
-  const [shoppingCart, setShoppingCart] = useState<{
-    [key: string]: ProductInCart;
-  }>({});
-
-  const onProductCountChange = ({ product, count }: onChangeArgs) => {
-    setShoppingCart((previousState) => {
-      const productInCart: ProductInCart = previousState[product.id] || {
-        ...product,
-        count: 0,
-      };
-
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count;
-        return {
-          ...previousState,
-          [product.id]: productInCart,
-        };
-      }
-
-      // Remove product
-      const { [product.id]: toDelete, ...rest } = previousState;
-
-      return { ...rest };
-
-      // Implementación sencilla
-      //   if (count === 0) {
-      //     const { [product.id]: toDelete, ...rest } = previousState;
-
-      //     return { ...rest };
-      //   }
-
-      //   return { ...previousState, [product.id]: { ...product, count } };
-    });
-  };
+  const { onProductCountChange, shoppingCart } = useShoppingCart();
 
   return (
     <>

@@ -4,7 +4,6 @@ import styles from "../../styles/styles.module.css";
 import { ProductProps } from "../../interfaces";
 
 import { Provider } from "../../context/product-context";
-import { product } from "../../config/constants";
 
 export const ProductCard: React.FC<ProductProps> = ({
   product,
@@ -12,8 +11,9 @@ export const ProductCard: React.FC<ProductProps> = ({
   className,
   style,
   onChange,
+  value,
 }) => {
-  const { counter, increaseHandler } = useProduct({ onChange, product });
+  const { counter, increaseHandler } = useProduct({ onChange, product, value });
 
   return (
     <Provider

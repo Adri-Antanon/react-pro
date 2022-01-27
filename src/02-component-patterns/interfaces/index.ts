@@ -17,6 +17,7 @@ export interface ProductButtonsStyles extends styles, className {}
 export interface ProductProps extends className, styles {
   product: Product;
   onChange?: (args: onChangeArgs) => void;
+  value?: number;
 }
 
 export interface onChangeArgs {
@@ -27,6 +28,7 @@ export interface onChangeArgs {
 export interface useProductArgs {
   product: Product;
   onChange?: (args: onChangeArgs) => void;
+  value?: number;
 }
 
 export interface ProductImageInterface extends className, styles {

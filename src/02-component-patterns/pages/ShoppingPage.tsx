@@ -8,28 +8,41 @@ import {
 
 import { products, product2, product } from "../config/constants";
 import "../styles/custom-styles.css";
-import { ProductInCart, Product } from "../interfaces/index";
+import { ProductInCart, Product, onChangeArgs } from "../interfaces/index";
 
 const ShoppingPage = () => {
   const [shoppingCart, setShoppingCart] = useState<{
     [key: string]: ProductInCart;
   }>({});
 
-  const onProductCountChange = ({
-    product,
-    count,
-  }: {
-    count: number;
-    product: Product;
-  }) => {
+  const onProductCountChange = ({ product, count }: onChangeArgs) => {
     setShoppingCart((previousState) => {
-      if (count === 0) {
-        const { [product.id]: toDelete, ...rest } = previousState;
+      const productInCart: ProductInCart = previousState[product.id] || {
+        ...product,
+        count: 0,
+      };
 
-        return { ...rest };
+      if (Math.max(productInCart.count + count, 0) > 0) {
+        productInCart.count += count;
+        return {
+          ...previousState,
+          [product.id]: productInCart,
+        };
       }
 
-      return { ...previousState, [product.id]: { ...product, count } };
+      // Remove product
+      const { [product.id]: toDelete, ...rest } = previousState;
+
+      return { ...rest };
+
+      // Implementación sencilla
+      //   if (count === 0) {
+      //     const { [product.id]: toDelete, ...rest } = previousState;
+
+      //     return { ...rest };
+      //   }
+
+      //   return { ...previousState, [product.id]: { ...product, count } };
     });
   };
 
@@ -51,6 +64,7 @@ const ShoppingPage = () => {
               product={product}
               className="bg-dark text-white"
               onChange={onProductCountChange}
+              value={shoppingCart[product.id]?.count || 0}
             >
               <ProductImage className="custom-image" />
               <ProductTitle />
@@ -66,6 +80,8 @@ const ShoppingPage = () => {
             product={product}
             className="bg-dark text-white"
             style={{ width: "10rem" }}
+            value={product.count}
+            onChange={onProductCountChange}
           >
             <ProductImage className="custom-image" />
             <ProductButtons

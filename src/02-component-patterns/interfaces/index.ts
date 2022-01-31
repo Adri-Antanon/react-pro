@@ -20,7 +20,7 @@ export interface InitialValues {
 
 export interface ProductProps extends className, styles {
   product: Product;
-  children: () => JSX.Element;
+  children: (args: ProductCardHandlers) => JSX.Element;
   onChange?: (args: onChangeArgs) => void;
   value?: number;
   initialValues?: InitialValues;
@@ -60,4 +60,13 @@ export interface ProductContextProps extends ProductButtonsProps {
 
 export interface ProductInCart extends Product {
   count: number;
+}
+
+export interface ProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: Product;
+  increaseBy: (value: number) => void;
+  reset: () => void;
 }

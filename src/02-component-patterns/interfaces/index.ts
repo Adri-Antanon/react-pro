@@ -1,4 +1,3 @@
-import { product } from "../config/constants";
 export interface Product {
   id: string;
   title?: string;
@@ -21,6 +20,7 @@ export interface InitialValues {
 
 export interface ProductProps extends className, styles {
   product: Product;
+  children: () => JSX.Element;
   onChange?: (args: onChangeArgs) => void;
   value?: number;
   initialValues?: InitialValues;
@@ -51,9 +51,12 @@ export interface ProductButtonsProps extends styles {
   counter: number;
 }
 
-export interface ProductContextProps
-  extends ProductButtonsProps,
-    ProductProps {}
+export interface ProductContextProps extends ProductButtonsProps {
+  product: Product;
+  onChange?: (args: onChangeArgs) => void;
+  value?: number;
+  maxCount?: number;
+}
 
 export interface ProductInCart extends Product {
   count: number;

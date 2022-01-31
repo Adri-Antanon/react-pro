@@ -5,7 +5,7 @@ import { ProductProps } from "../../interfaces";
 
 import { Provider } from "../../context/product-context";
 
-export const ProductCard: React.FC<ProductProps> = ({
+export const ProductCard = ({
   product,
   children,
   className,
@@ -13,7 +13,7 @@ export const ProductCard: React.FC<ProductProps> = ({
   onChange,
   value,
   initialValues,
-}) => {
+}: ProductProps) => {
   const { counter, increaseHandler } = useProduct({
     onChange,
     product,
@@ -27,10 +27,11 @@ export const ProductCard: React.FC<ProductProps> = ({
         counter,
         increaseHandler,
         product,
+        maxCount: initialValues?.maxCount,
       }}
     >
       <div style={style} className={`${styles.productCard} ${className}`}>
-        {children}
+        {children()}
       </div>
     </Provider>
   );

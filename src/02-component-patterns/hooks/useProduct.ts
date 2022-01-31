@@ -38,5 +38,5 @@ export const useProduct = ({
     setCounter(value);
   }, [value]);
 
-  return { counter, increaseHandler };
+  return { counter, increaseHandler, maxCount: initialValues?.maxCount };
 };

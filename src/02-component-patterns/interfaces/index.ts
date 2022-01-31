@@ -14,10 +14,16 @@ export interface styles {
 
 export interface ProductButtonsStyles extends styles, className {}
 
+export interface InitialValues {
+  count?: number;
+  maxCount?: number;
+}
+
 export interface ProductProps extends className, styles {
   product: Product;
   onChange?: (args: onChangeArgs) => void;
   value?: number;
+  initialValues?: InitialValues;
 }
 
 export interface onChangeArgs {
@@ -29,6 +35,7 @@ export interface useProductArgs {
   product: Product;
   onChange?: (args: onChangeArgs) => void;
   value?: number;
+  initialValues?: InitialValues;
 }
 
 export interface ProductImageInterface extends className, styles {

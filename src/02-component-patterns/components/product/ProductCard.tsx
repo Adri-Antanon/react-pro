@@ -12,8 +12,14 @@ export const ProductCard: React.FC<ProductProps> = ({
   style,
   onChange,
   value,
+  initialValues,
 }) => {
-  const { counter, increaseHandler } = useProduct({ onChange, product, value });
+  const { counter, increaseHandler } = useProduct({
+    onChange,
+    product,
+    value,
+    initialValues,
+  });
 
   return (
     <Provider

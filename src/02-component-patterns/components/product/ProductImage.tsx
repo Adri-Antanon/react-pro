@@ -1,11 +1,14 @@
-import { ProductImageInterface } from "../../interfaces/index";
-import styles from "../../styles/styles.module.css";
+import { useContext } from 'react';
+import ProductContext from '../../context/product-context';
+import { ProductImageInterface } from '../../interfaces';
 
-import noImage from "../../assets/no-image.jpg";
-import { useContext } from "react";
-import ProductContext from "../../context/product-context";
+import styles from '../../styles/styles.module.css';
+import noImage from '../../assets/no-image.jpg';
 
-export const ProductImage: React.FC<ProductImageInterface> = ({ img = "", className }) => {
+export const ProductImage: React.FC<ProductImageInterface> = ({
+  img = '',
+  className,
+}) => {
   const { product } = useContext(ProductContext);
   let imgToShow: string;
 
@@ -17,5 +20,11 @@ export const ProductImage: React.FC<ProductImageInterface> = ({ img = "", classN
     imgToShow = noImage;
   }
 
-  return <img className={`${styles.productImg} ${className}`} src={imgToShow} alt="Product" />;
+  return (
+    <img
+      className={`${styles.productImg} ${className}`}
+      src={imgToShow}
+      alt="Product"
+    />
+  );
 };

@@ -1,9 +1,9 @@
-import { useProduct } from "../../hooks/useProduct";
+import { useProduct } from '../../hooks/useProduct';
 
-import styles from "../../styles/styles.module.css";
-import { ProductProps } from "../../interfaces";
+import styles from '../../styles/styles.module.css';
+import { ProductProps } from '../../interfaces';
 
-import { Provider } from "../../context/product-context";
+import { Provider } from '../../context/product-context';
 
 export const ProductCard = ({
   product,

@@ -1,6 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { MyTextInput } from '../components/MyTextInput';
+import { MyTextInput, MySelect } from '../components';
 
 import '../styles/styles.css';
 
@@ -58,15 +58,13 @@ export const FormikAbstract = () => {
               type="email"
             />
 
-            <label htmlFor="jobType">Job Type</label>
-            <Field name="jobType" as="select">
+            <MySelect label="Job Type" name="jobType">
               <option value={''}>Select a job type</option>
               <option value="designer">Designer</option>
               <option value="developer">Developer</option>
               <option value="it-senior">IT Senior</option>
               <option value="it-junior">IT Junior</option>
-            </Field>
-            <ErrorMessage component={'span'} name="jobType" />
+            </MySelect>
 
             <label>
               <Field name="terms" type="checkbox" />

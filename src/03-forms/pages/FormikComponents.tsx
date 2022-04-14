@@ -12,6 +12,8 @@ export const FormikComponents = () => {
           firstName: '',
           lastName: '',
           email: '',
+          terms: false,
+          jobType: '',
         }}
         onSubmit={(values) => {
           alert(JSON.stringify(values, null, 2));
@@ -26,21 +28,41 @@ export const FormikComponents = () => {
           email: Yup.string()
             .email('Invalid email address')
             .required('Required'),
+          terms: Yup.boolean().oneOf([true], 'You must accept the terms'),
+          jobType: Yup.string()
+            .notOneOf(['it-junior'], 'This option is not allowed')
+            .required('Required'),
         })}
       >
         {(formik) => (
           <Form>
             <label htmlFor="firstName">First Name</label>
             <Field name="firstName" type="text" />
-            <ErrorMessage className="error-message" name="firstName" />
+            <ErrorMessage component={'span'} name="firstName" />
 
             <label htmlFor="lastName">Last Name</label>
             <Field name="lastName" type="text" />
-            <ErrorMessage name="lastName" />
+            <ErrorMessage component={'span'} name="lastName" />
 
             <label htmlFor="email">Email Address</label>
             <Field name="email" type="email" />
-            <ErrorMessage name="email" />
+            <ErrorMessage component={'span'} name="email" />
+
+            <label htmlFor="jobType">Job Type</label>
+            <Field name="jobType" as="select">
+              <option value={''}>Select a job type</option>
+              <option value="designer">Designer</option>
+              <option value="developer">Developer</option>
+              <option value="it-senior">IT Senior</option>
+              <option value="it-junior">IT Junior</option>
+            </Field>
+            <ErrorMessage component={'span'} name="jobType" />
+
+            <label>
+              <Field name="terms" type="checkbox" />
+              Terms and Conditions
+            </label>
+            <ErrorMessage component={'span'} name="terms" />
 
             <button type="submit">Submit</button>
           </Form>

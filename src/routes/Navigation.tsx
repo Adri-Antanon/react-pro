@@ -8,6 +8,7 @@ import {
 
 import {
   RegisterPage,
+  RegisterFormikPage,
   FormikAbstract,
   FormikBasicPage,
   FormikComponents,
@@ -37,6 +38,14 @@ export const Navigation: React.FC = () => {
                 className={({ isActive }) => (isActive ? 'nav-active' : '')}
               >
                 Register
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/register-formik"
+                className={({ isActive }) => (isActive ? 'nav-active' : '')}
+              >
+                Register Formik
               </NavLink>
             </li>
             <li>
@@ -92,6 +101,7 @@ export const Navigation: React.FC = () => {
         <Routes>
           <Route path="home" element={<h1>Home Page</h1>} />
           <Route path="register" element={<RegisterPage />} />
+          <Route path="register-formik" element={<RegisterFormikPage />} />
           <Route path="formik-basic" element={<FormikBasicPage />} />
           <Route path="formik-yup" element={<FormikYupPage />} />
           <Route path="formik-components" element={<FormikComponents />} />

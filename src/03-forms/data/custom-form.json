@@ -19,5 +19,29 @@
     "placeholder": "test@gmail.com",
     "label": "Email Address",
     "value": ""
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Favorite Game",
+    "value": "",
+    "options": [
+      {
+        "id": 1,
+        "label": "Final Fantasy VII"
+      },
+      {
+        "id": 2,
+        "label": "Fire Emblem"
+      },
+      {
+        "id": 3,
+        "label": "Triangle Strategy"
+      },
+      {
+        "id": 4,
+        "label": "Octopath Traveler"
+      }
+    ]
   }
 ]

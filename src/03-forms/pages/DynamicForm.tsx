@@ -17,6 +17,18 @@ for (const input of formJSON) {
     if (rule.type === 'required') {
       schema = schema.required(rule.message);
     }
+
+    if (rule.type === 'minLength') {
+      schema = schema.min((rule as any).value, rule.message);
+    }
+
+    if (rule.type === 'maxLength') {
+      schema = schema.max((rule as any).value, rule.message);
+    }
+
+    if (rule.type === 'email') {
+      schema = schema.email(rule.message);
+    }
   }
 
   requiredFields[input.name] = schema;

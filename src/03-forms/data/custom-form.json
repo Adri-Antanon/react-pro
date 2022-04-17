@@ -9,6 +9,16 @@
       {
         "type": "required",
         "message": "First Name is required"
+      },
+      {
+        "type": "minLength",
+        "message": "First Name must be at least 3 characters",
+        "value": 3
+      },
+      {
+        "type": "maxLength",
+        "message": "First Name must be less than 10 characters",
+        "value": 10
       }
     ]
   },
@@ -22,6 +32,16 @@
       {
         "type": "required",
         "message": "Last Name is required"
+      },
+      {
+        "type": "minLength",
+        "message": "Last Name must be at least 3 characters",
+        "value": 3
+      },
+      {
+        "type": "maxLength",
+        "message": "Last Name must be less than 10 characters",
+        "value": 10
       }
     ]
   },
@@ -35,6 +55,10 @@
       {
         "type": "required",
         "message": "Email is required"
+      },
+      {
+        "type": "email",
+        "message": "Email must be valid"
       }
     ]
   },
@@ -59,6 +83,12 @@
       {
         "id": 4,
         "label": "Octopath Traveler"
+      }
+    ],
+    "validations": [
+      {
+        "type": "required",
+        "message": "Select an option is required"
       }
     ]
   }
